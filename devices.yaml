@@ -9,4 +9,4 @@ auto-standby: true
 audio_mode: strict
 
 # read_notifications_out: Read notifications using piper tts directly to your headphones
-read_notifications_out: true
+read_notifications_out: false

@@ -75,7 +75,7 @@ sudo pacman -S gcc yaml-cpp speech-dispatcher playerctl bluez-utils
 ## 2. Compile
 
 ```bash
-./compile.sh airpods_daemon
+g++ main.cpp tts.cpp hwwatcher.cpp -o AirTux -lyaml-cpp -lspeechd -I include/
 ```
 
 ---
@@ -83,7 +83,7 @@ sudo pacman -S gcc yaml-cpp speech-dispatcher playerctl bluez-utils
 ## 3. Run
 
 ```bash
-./airpods_daemon
+./AirTux
 ```
 
 ---
