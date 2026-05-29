@@ -1,0 +1,12 @@
+devices:
+  airpods: # Default, you can change this to whatever
+    mac: 70:8C:F2:70:87:D3
+
+# Automatically disconnect device upon pausing ALL media
+auto-standby: true
+
+# audio_mode: strict (Default, Pauses all tabs when playing without bluetooth headset) | tab (Only pauses current tab) | open (Doesn't pause any tab)
+audio_mode: strict
+
+# read_notifications_out: Read notifications using piper tts directly to your headphones
+read_notifications_out: true
