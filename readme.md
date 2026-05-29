@@ -110,6 +110,6 @@ Core daemon loop responsible for Bluetooth monitoring and device state managemen
 
 Handles asynchronous text-to-speech processing and D-Bus notification integration.
 
-### 'hwwatcher.cpp / watcher.h'
+### `hwwatcher.cpp / watcher.h`
 
 Handles headphone disconnects and pauses all media over D-Bus integration.
