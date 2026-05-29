@@ -13,6 +13,7 @@
 #include <yaml-cpp/yaml.h>
 #include <sstream>
 #include "include/tts.h"
+#include "include/watcher.h"
 
 std::string sanitizePlayerName();
 
@@ -171,6 +172,11 @@ availableAudioModes hashString(const std::string& str) {
     return availableAudioModes::unknown;
 }
 
+bool handleDisconnect(const std::string& mac) {
+    int res = system("playerctl -a pause");
+    return res == false;
+}
+
 int main() {
     bool disconnected = true;
     bool isPlayingAtLaunch = isPlaying();
@@ -200,11 +206,13 @@ int main() {
         read_notifications_out = config["read_notifications_out"].as<bool>(false);
     }
 
-    //TEST NOTIFICATION
     if(read_notifications_out) {
         std::thread notificationThread(watchDesktopNotifications);
         notificationThread.detach();
     }
+
+    std::thread disconnectWatcher(watchBluetoothDisconnect, airpods);
+    disconnectWatcher.detach();
 
     if(isPlayingAtLaunch) {
         tryConnect(airpods);
